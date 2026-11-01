@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: biologia-nm
+    runtime: node
+    plan: free
+    buildCommand: echo "sin dependencias"
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    envVars:
+      - key: APP_PASSWORD
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex"><title>Entrar · Biología NM</title>
+<style>
+:root{color-scheme:light;--bg:#fff;--surface:#fff;--soft:#f3f4f6;--ink:#111318;--mute:#6b7280;--line:#e3e5ea;--acc:#0b78c2;--accsoft:#e8f3fb;--accink:#fff;--bad:#e5132d;--badsoft:#fdecee;--sh:0 1px 2px rgba(17,19,24,.04),0 8px 24px rgba(17,19,24,.06)}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#120e1d;--surface:#1b1530;--soft:#241c3d;--ink:#f4f0fc;--mute:#a99ec8;--line:#33295a;--acc:#a46bff;--accsoft:#2a1f4d;--accink:#fff;--bad:#ff5b73;--badsoft:#3a1827;--sh:0 8px 28px rgba(0,0,0,.35)}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;padding:max(18px,env(safe-area-inset-top,0px)) 18px max(18px,env(safe-area-inset-bottom,0px))}
+.card{width:100%;max-width:400px;background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:30px 26px;box-shadow:var(--sh);text-align:center}
+.logo{width:56px;height:56px;border-radius:18px;background:var(--acc);color:var(--accink);display:grid;place-items:center;font-size:28px;margin:0 auto 14px}
+h1{font-size:24px;margin:0 0 4px;letter-spacing:-.02em}p{margin:0 0 20px;color:var(--mute)}
+.f{position:relative;margin-bottom:14px}input{width:100%;font:inherit;padding:14px 48px 14px 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink)}
+input:focus{outline:3px solid var(--accsoft);border-color:var(--acc)}
+.eye{position:absolute;right:6px;top:6px;width:38px;height:38px;border:0;border-radius:10px;background:none;color:var(--mute);cursor:pointer;font-size:18px}
+button.go{width:100%;font:700 16px Inter,system-ui,sans-serif;padding:14px;border-radius:14px;border:0;background:var(--acc);color:var(--accink);cursor:pointer}
+button.go:hover{filter:brightness(1.07)}.err{background:var(--badsoft);color:var(--bad);border-radius:12px;padding:10px 12px;margin:0 0 14px;font-weight:600;font-size:14px}
+.th{position:fixed;top:max(14px,env(safe-area-inset-top,0px));right:14px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font-size:18px}
+</style></head><body>
+<button class="th" id="th" aria-label="Cambiar entre modo claro y oscuro" title="Modo claro / oscuro">◐</button>
+<form class="card" method="post" action="/login"><div class="logo">🧬</div><h1>Biología NM</h1><p>Ingresa la contraseña para continuar.</p>
+<!--ERR--><div class="f"><input id="pw" type="password" name="password" placeholder="Contraseña" autocomplete="current-password" required autofocus><button type="button" class="eye" id="ey" aria-label="Mostrar contraseña">👁</button></div>
+<button class="go" type="submit">Entrar</button></form>
+<script>
+try{if(localStorage.getItem('bio:theme')==='"dark"')document.documentElement.dataset.theme='dark'}catch(e){}
+document.getElementById('th').onclick=()=>{const r=document.documentElement,d=r.dataset.theme!=='dark';if(d)r.dataset.theme='dark';else delete r.dataset.theme;try{localStorage.setItem('bio:theme',JSON.stringify(d?'dark':'light'))}catch(e){}};
+document.getElementById('ey').onclick=()=>{const i=document.getElementById('pw');i.type=i.type==='password'?'text':'password'};
+</script></body></html>

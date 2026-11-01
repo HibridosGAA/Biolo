@@ -1,0 +1,12 @@
+BANCO DE PREGUNTAS IB BIOLOGIA NM
+1) Descomprime la carpeta completa.
+2) Abre index.html con doble clic (Chrome, Edge, Safari o Firefox). No necesita internet.
+   Mantén index.html junto a la carpeta "banco".
+3) Tu progreso se guarda en el navegador (en el mismo equipo y navegador).
+
+Para regenerar todo desde el PDF (sin IA):
+  pip install pillow numpy scipy pytesseract   (y tener poppler y tesseract instalados)
+  python generar.py "archivo.pdf"
+Revisa revisar.txt: indica si algun tema no coincide en preguntas y respuestas.
+
+Preguntas: IB Topic Assessment, open.coarinos.org (CC BY-NC-ND 4.0). Solo para estudio personal.

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IB Biología NM · Banco de preguntas</title>
+<style>
+:root{color-scheme:light;--bg:#fff;--surface:#fff;--soft:#f3f4f6;--ink:#111318;--mute:#6b7280;--line:#e3e5ea;--acc:#0b78c2;--accsoft:#e8f3fb;--accink:#fff;--pur:#a62fc9;--ok:#12a150;--oksoft:#e7f7ee;--bad:#e5132d;--badsoft:#fdecee;--sh:0 1px 2px rgba(17,19,24,.04),0 8px 24px rgba(17,19,24,.05)}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#120e1d;--surface:#1b1530;--soft:#241c3d;--ink:#f4f0fc;--mute:#a99ec8;--line:#33295a;--acc:#a46bff;--accsoft:#2a1f4d;--accink:#fff;--pur:#d08bff;--ok:#2fd27a;--oksoft:#12301f;--bad:#ff5b73;--badsoft:#3a1827;--sh:0 8px 28px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;transition:background .25s,color .25s;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{max-width:860px;margin:0 auto;padding:18px 18px 56px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700}.brand i{width:36px;height:36px;border-radius:12px;background:var(--acc);color:var(--accink);display:grid;place-items:center;font-style:normal;font-size:18px}
+.tools{display:flex;gap:8px;align-items:center}
+.chipst{display:flex;gap:6px}.st{font-size:13px;font-weight:700;padding:6px 12px;border-radius:99px;background:var(--soft)}.st.g{color:var(--ok)}.st.r{color:var(--bad)}
+.icon{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;display:grid;place-items:center;box-shadow:var(--sh)}
+.icon[hidden]{display:none}.icon svg{width:20px;height:20px}.ic-sun{display:none}[data-theme="dark"] .ic-sun{display:block}[data-theme="dark"] .ic-moon{display:none}
+h1{font-size:clamp(26px,5vw,36px);line-height:1.15;margin:4px 0 6px;letter-spacing:-.02em}
+h2{font-size:18px;margin:30px 0 12px}
+.sub{color:var(--mute);margin:0 0 18px}
+.bar{height:8px;background:var(--soft);border-radius:9px;overflow:hidden;margin:8px 0 22px}.bar i{display:block;height:100%;width:0;background:var(--acc);border-radius:9px;transition:width .35s}
+.meta{display:flex;justify-content:space-between;font-size:13px;color:var(--mute)}.meta a{color:var(--acc);font-weight:600;text-decoration:none}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:22px;box-shadow:var(--sh)}
+.qh{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:16px}.qh b{font-size:20px;margin-right:4px}
+.pill{font-size:12px;font-weight:700;padding:4px 11px;border-radius:99px;background:var(--soft);color:var(--mute)}.pill.g{background:none;border:1.5px solid var(--ok);color:var(--ok)}
+.imgbox{background:#fff;border-radius:16px;padding:12px;overflow-x:auto;border:1px solid var(--line)}.imgbox img{display:block;max-width:100%;height:auto;margin:0 auto}
+.rows{margin-top:16px;display:grid;gap:6px}
+.row{display:flex;align-items:center;gap:14px;width:100%;padding:7px 10px;border-radius:16px;border:1.5px solid transparent;background:none;color:var(--ink);font:inherit;cursor:pointer;text-align:left;transition:background .15s,border-color .15s}
+.row:hover:not(:disabled){background:var(--soft)}.row:disabled{cursor:default}
+.bdg{flex:none;width:44px;height:44px;border-radius:14px;border:1.5px solid var(--line);display:grid;place-items:center;font-weight:700;font-size:17px;background:var(--surface)}
+.row .rt{flex:1}.row .tg{font-size:12px;font-weight:700;padding:5px 12px;border-radius:99px;border:1.5px solid var(--pur);color:var(--pur)}
+.row.ok{background:var(--oksoft);border-color:var(--ok)}.row.ok .bdg{background:var(--ok);border-color:var(--ok);color:#fff}
+.row.bad{background:var(--badsoft);border-color:var(--bad)}.row.bad .bdg{background:var(--bad);border-color:var(--bad);color:#fff}.row.dim{opacity:.55}
+.ban{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px;padding:14px 16px;border-radius:18px;border:2px solid var(--accsoft);background:var(--accsoft)}
+.ban .ic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:20px;flex:none}.ban.ok .ic{background:var(--ok)}.ban.bad .ic{background:var(--bad)}
+.ban div{flex:1;min-width:160px}.ban b{display:block}.ban span{font-size:14px;color:var(--mute)}
+.btn{font:700 15px Inter,system-ui,sans-serif;padding:12px 22px;border-radius:14px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:transform .12s,filter .15s}
+.btn.pri{background:var(--acc);border-color:var(--acc);color:var(--accink)}.btn:hover:not(:disabled){filter:brightness(1.06);transform:translateY(-1px)}.btn:disabled{opacity:.4;cursor:default}
+.nav{display:flex;justify-content:space-between;margin-top:16px}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.tema{text-align:left;padding:16px 18px;border-radius:20px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font:inherit;box-shadow:var(--sh);transition:transform .12s,border-color .15s}
+.tema:hover{border-color:var(--acc);transform:translateY(-2px)}.tema b{display:block}.tema small{color:var(--mute);display:block;margin-top:4px}
+.tema .tag{float:right;font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;background:var(--accsoft);color:var(--acc)}
+.tema .mb{height:5px;border-radius:9px;background:var(--soft);margin-top:10px;overflow:hidden}.tema .mb i{display:block;height:100%;background:var(--acc)}
+.sim{width:100%;background:var(--acc);color:var(--accink);border-color:var(--acc);display:flex;align-items:center;justify-content:space-between;gap:12px}.sim small{color:inherit;opacity:.85}.sim:hover{border-color:var(--acc)}
+.res{text-align:center;padding:30px 18px}.big{font-size:60px;font-weight:800;line-height:1;margin:6px 0;color:var(--acc)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px 0}
+.chip{padding:6px 12px;border-radius:99px;border:1.5px solid var(--bad);background:var(--badsoft);color:var(--bad);font-size:14px;font-weight:700;cursor:pointer}
+.acts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:12px}
+.note{font-size:13px;color:var(--mute)}footer{margin-top:40px;font-size:12px;color:var(--mute);text-align:center}
+@media (max-width:480px){.card{padding:14px;border-radius:22px}.bdg{width:40px;height:40px}.st{padding:5px 9px}}
+</style></head><body><div class="wrap">
+<div class="top"><div class="brand"><i>🧬</i>Biología NM</div>
+<div class="tools"><div class="chipst" id="st"></div>
+<button class="icon" id="lo" aria-label="Cerrar sesión" title="Cerrar sesión" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg></button>
+<button class="icon" id="th" aria-label="Cambiar entre modo claro y oscuro" title="Modo claro / oscuro">
+<svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+<svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button></div></div>
+<header><h1 id="h1">Banco de preguntas</h1><p class="sub" id="sub">Práctica de opción múltiple por tema.</p><div id="top"></div></header>
+<main id="v"></main>
+<footer>Preguntas: IB Topic Assessment, open.coarinos.org (CC BY-NC-ND 4.0). Solo para estudio personal.</footer></div>
+<script src="banco/data.js"></script>
+<script>
+const L=['A','B','C','D'],ALL=[],$=s=>document.querySelector(s),root=document.documentElement;
+DATA.forEach(t=>t.preguntas.forEach(q=>{q.t=t.id;q.ix=ALL.length;ALL.push(q)}));
+const store={get(k){try{return JSON.parse(localStorage.getItem('bio:'+k))}catch(e){return null}},set(k,v){try{localStorage.setItem('bio:'+k,JSON.stringify(v))}catch(e){}}};
+const tm=store.get('theme');if(tm==='dark')root.dataset.theme='dark';
+$('#th').onclick=()=>{const d=root.dataset.theme!=='dark';if(d)root.dataset.theme='dark';else delete root.dataset.theme;store.set('theme',d?'dark':'light')};
+if(location.protocol!=='file:'){$('#lo').hidden=false;$('#lo').onclick=()=>fetch('/logout',{method:'POST'}).then(()=>location.href='/login')}
+let cur=null,S=null;
+const pct=id=>{const s=store.get(id);if(!s||!s.order||!s.order.length)return null;const n=s.order.filter(i=>s.ans[i]).length;if(!n)return null;return{n,tot:s.order.length,ok:s.order.filter(i=>s.ans[i]&&s.ans[i]===ALL[i].a).length}};
+const stats=(ok,n)=>{$('#st').innerHTML=n?`<span class="st g">✓ ${ok}</span><span class="st r">✕ ${n-ok}</span>`:''};
+function home(){
+  cur=null;$('#top').innerHTML='';stats(0,0);$('#h1').textContent='Banco de preguntas';$('#sub').style.display='';
+  let h=`<button class="tema sim" id="sim"><span><b>Simulacro mixto</b><small>25 preguntas al azar de todos los temas</small></span><span style="font-size:22px">→</span></button>`;
+  const us={};DATA.forEach(t=>(us[t.unidad]=us[t.unidad]||[]).push(t));
+  for(const u in us){h+=`<h2>${u}. ${us[u][0].unidadNombre}</h2><div class="grid">`+us[u].map(t=>{const p=pct(t.id);return `<button class="tema" data-id="${t.id}">${p?`<span class="tag">${Math.round(p.ok/p.n*100)}%</span>`:''}<b>${t.id} ${t.nombre}</b><small>${t.preguntas.length} preguntas${p?` · ${p.n} respondidas`:''}</small><div class="mb"><i style="width:${p?p.n/p.tot*100:0}%"></i></div></button>`}).join('')+'</div>'}
+  $('#v').innerHTML=h;
+  $('#sim').onclick=()=>open('mix',ALL.map(q=>q.ix).sort(()=>Math.random()-.5).slice(0,25),true);
+  document.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>{const t=DATA.find(x=>x.id===b.dataset.id);open(t.id,t.preguntas.map(q=>q.ix))});
+}
+function open(id,order,fresh){cur=id;const s=store.get(id);S=(!fresh&&s&&s.order&&s.order.length===order.length)?s:{order,pos:0,ans:{}};save();draw();scrollTo(0,0)}
+const save=()=>store.set(cur,S);
+const wrong=()=>S.order.filter(i=>S.ans[i]&&S.ans[i]!==ALL[i].a);
+function draw(){
+  const N=S.order.length,n=S.order.filter(i=>S.ans[i]).length,ok=n-wrong().length;
+  const nm=cur==='mix'?'Simulacro mixto':'Tema '+cur+' · '+DATA.find(t=>t.id===cur).nombre;
+  $('#h1').textContent=nm;$('#sub').style.display='none';stats(ok,n);
+  $('#top').innerHTML=`<div class="meta"><a href="#" id="bk">← Todos los temas</a><span>${n} de ${N} respondidas</span></div><div class="bar"><i style="width:${n/N*100}%"></i></div>`;
+  $('#bk').onclick=e=>{e.preventDefault();home()};
+  const v=$('#v');
+  if(S.pos>=N){
+    const w=wrong(),p=Math.round(ok/N*100);
+    v.innerHTML=`<div class="card res"><span class="pill">Resultado</span><div class="big">${ok}/${N}</div><p>${p}% de aciertos.</p>
+    ${w.length?`<p class="note">Falladas (toca para revisarlas):</p><div class="chips">${w.map(i=>`<button class="chip" data-go="${S.order.indexOf(i)}">${cur==='mix'?ALL[i].t+' · ':''}N.º ${ALL[i].n}</button>`).join('')}</div>`:''}
+    <div class="acts">${w.length?'<button class="btn pri" id="rw">Repasar falladas</button>':''}<button class="btn" id="rs">Reiniciar</button><button class="btn" id="sh">Mezclar y reiniciar</button><button class="btn" id="hm">Elegir otro tema</button></div></div>`;
+    v.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{S.pos=+b.dataset.go;save();draw()});
+    const f=(id,fn)=>{const e=$(id);if(e)e.onclick=fn};
+    f('#rw',()=>{S={order:w,pos:0,ans:{}};save();draw()});
+    f('#rs',()=>{S={order:S.order.slice().sort((a,b)=>a-b),pos:0,ans:{}};save();draw()});
+    f('#sh',()=>{S={order:S.order.slice().sort(()=>Math.random()-.5),pos:0,ans:{}};save();draw()});
+    f('#hm',home);return;
+  }
+  const qi=S.order[S.pos],q=ALL[qi],c=S.ans[qi],good=c===q.a;
+  const cl=l=>!c?'':l===q.a?'ok':l===c?'bad':'dim';
+  v.innerHTML=`<div class="card"><div class="qh"><b>Pregunta ${S.pos+1}</b><span class="pill">NM</span><span class="pill">Prueba 1</span><span class="pill g">Tema ${q.t}</span><span class="pill">N.º ${q.n}</span></div>
+  <div class="imgbox"><img alt="Enunciado de la pregunta" src="banco/${q.img}"></div>
+  <div class="rows">${L.map(l=>`<button class="row ${cl(l)}" data-l="${l}" ${c?'disabled':''}><span class="bdg">${c&&l===q.a?'✓':c&&l===c?'✕':l}</span><span class="rt">Opción ${l}</span>${c&&l===q.a?'<span class="tg">Respuesta correcta</span>':c&&l===c?'<span class="tg">Tu respuesta</span>':''}</button>`).join('')}</div>
+  ${c?`<div class="ban ${good?'ok':'bad'}"><span class="ic">${good?'✓':'✕'}</span><div><b>${good?'¡Correcto!':'¡No del todo!'}</b><span>${good?'Muy bien, sigue así.':'La respuesta correcta es la '+q.a+'.'}</span></div><button class="btn pri" id="nx">${S.pos===N-1?'Ver resultados':'Siguiente →'}</button></div>`:''}
+  <div class="nav"><button class="btn" id="pv" ${S.pos?'':'disabled'}>← Anterior</button></div></div>`;
+  v.querySelectorAll('.row').forEach(b=>b.onclick=()=>ans(b.dataset.l));
+  $('#pv').onclick=prev;if($('#nx'))$('#nx').onclick=next;
+}
+function ans(l){if(!cur||S.pos>=S.order.length||S.ans[S.order[S.pos]])return;S.ans[S.order[S.pos]]=l;save();draw();$('#nx').focus()}
+function next(){if(cur&&S.pos<S.order.length&&S.ans[S.order[S.pos]]){S.pos++;save();draw();scrollTo(0,0)}}
+function prev(){if(cur&&S.pos>0){S.pos--;save();draw()}}
+document.addEventListener('keydown',e=>{if(!cur||e.ctrlKey||e.metaKey||e.altKey)return;const k=e.key.toLowerCase(),i='abcd'.indexOf(k),j='1234'.indexOf(k);
+ if(i>-1||j>-1)ans(L[i>-1?i:j]);else if(k==='arrowright'||(k==='enter'&&document.activeElement.tagName!=='BUTTON'))next();else if(k==='arrowleft')prev()});
+home();
+</script></body></html>
